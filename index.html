@@ -3,6 +3,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <style>
             body {
+                /* Fundo Roxo Escuro */
                 background: #200020; 
                 display: flex;
                 justify-content: center;
@@ -13,6 +14,7 @@
             .box {
                 font-size: 20px;
                 color: white;
+                /* Otimização Mobile */
                 width: 90%; 
                 max-width: 350px; 
                 height: 250px; 
@@ -24,11 +26,11 @@
                 justify-content: center;
                 
                 /* Contorno Neon Rosa */
-                box-shadow: 0 0 5px #ff00ff,   /* Brilho interno sutil */
-                            0 0 15px #ff00ff,  /* Brilho médio */
-                            0 0 25px #ff00ff,  /* Brilho externo */
-                            0 0 40px #ff00ff; /* Brilho mais forte */
-                transition: box-shadow 0.3s ease-in-out; /* Transição para o hover */
+                box-shadow: 0 0 5px #ff00ff,
+                            0 0 15px #ff00ff,
+                            0 0 25px #ff00ff,
+                            0 0 40px #ff00ff;
+                transition: box-shadow 0.3s ease-in-out;
             }
             
             /* Efeito hover para o neon (opcional) */
@@ -55,6 +57,7 @@
                 color: #e6e6e6;
                 font-weight: 600;
                 cursor: pointer;
+                /* Transição para cor de fundo e para a animação de movimento (top/left) */
                 transition: background-color 0.3s ease, top 0.3s ease, left 0.3s ease; 
             }
 
@@ -62,6 +65,7 @@
                 background-color: #333; 
             }
 
+            /* Garante que o botão pode se mover (necessário para o JS) */
             #no {
                 position: relative; 
             }
@@ -82,6 +86,15 @@
             let height = window.innerHeight - 50;
             let width = window.innerWidth - 50;
 
+            // Evento de CLIQUE (funciona como toque no celular)
+            button.addEventListener('click', function (event) {
+                event.preventDefault();
+                button.style.position = "absolute";
+                button.style.top = Math.random() * height + "px";
+                button.style.left = Math.random() * width + "px";
+            });
+
+            // Evento de MOUSEOVER (funciona em desktop)
             button.addEventListener('mouseover', function () {
                 button.style.position = "absolute";
                 button.style.top = Math.random() * height + "px";
